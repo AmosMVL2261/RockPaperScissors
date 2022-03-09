@@ -34,8 +34,14 @@ function playRound(playerSelection, computerSelection) {
     } else {
         return "Computer Wins";
     }
-  }
+}
   
-  const playerSelection = "rock";
-  const computerSelection = computerPlay();
-  console.log(playRound(playerSelection, computerSelection));
+//Game rounds
+function game() {
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = "rock";
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+     }
+}
+
