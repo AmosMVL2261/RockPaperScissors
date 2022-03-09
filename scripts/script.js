@@ -1,3 +1,4 @@
+//Computer random choose
 function computerPlay() {
     let random = getRandomNumber();    
     if(random>=0 && random<1){
@@ -16,3 +17,25 @@ function getRandomNumber(){
     let max = 3;
     return (Math.random()*(max -min)+min);
 }
+
+//Game functionality
+function playRound(playerSelection, computerSelection) {
+    let player = playerSelection.toLowerCase();
+    let computer = computerSelection.toLowerCase();
+    console.log("Player selection: "+player+"\nComputer selection: "+computer);
+    if(player === computer) {
+        return "Tie";
+    } else if (player === "rock" && computer === "scissors") {
+        return "Player Wins";
+    } else if (player === "scissors" && computer === "paper") {
+        return "Player wins";
+    } else if (player === "paper" && computer === "rock") {
+        return "Player wins";
+    } else {
+        return "Computer Wins";
+    }
+  }
+  
+  const playerSelection = "rock";
+  const computerSelection = computerPlay();
+  console.log(playRound(playerSelection, computerSelection));
