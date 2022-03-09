@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
 //Game rounds
 function game() {
     for (let i = 0; i < 5; i++) {
-        const playerSelection = "rock";
+        const playerSelection = prompt("Rock, Paper or Scissors?");
         const computerSelection = computerPlay();
         console.log(playRound(playerSelection, computerSelection));
      }
