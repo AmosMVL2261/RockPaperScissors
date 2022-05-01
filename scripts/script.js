@@ -22,7 +22,6 @@ function getRandomNumber(){
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
-    console.log("Player selection: "+player+"\nComputer selection: "+computer);
     if(player === computer) {
         return "Tie";
     } else if (player === "rock" && computer === "scissors") {
@@ -35,13 +34,45 @@ function playRound(playerSelection, computerSelection) {
         return "Computer Wins";
     }
 }
-  
-//Game rounds
-function game() {
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("Rock, Paper or Scissors?");
-        const computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
-     }
+
+//Messages
+function message(playerSelection){
+    const resultsArea = document.querySelector("#answers");
+
+    const result = document.createElement("p");
+    result.classList.add("resultMessage");
+    result.setAttribute('style', 'white-space: pre;');
+    //Round play
+    const computerSelection = computerPlay();
+    let mensaje = "Your election: "+playerSelection+"\r\n"+"Computer election: "+computerSelection+"\r\n";
+    result.textContent = mensaje+playRound(playerSelection, computerSelection);
+
+    resultsArea.appendChild(result);
 }
 
+
+
+//Rounds logic
+let round=0;
+function selection(playerSelection){
+    if(round<=5){
+        message(playerSelection);
+    }else{
+        console.log("Invalid input");
+    }
+
+}
+
+
+function prueba(){
+    window.alert("You selected rock");
+}
+
+//Button Calls
+const buttonRock = document.querySelector("#rock");
+const buttonPaper = document.querySelector("#paper");
+const buttonScissors = document.querySelector("#scissors");
+
+buttonRock.addEventListener("click",()=>selection("rock"));
+buttonPaper.addEventListener("click",()=>selection("paper"));
+buttonScissors.addEventListener("click",()=>selection("scissors"));
