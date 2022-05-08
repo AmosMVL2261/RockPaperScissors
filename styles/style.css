@@ -2,9 +2,3 @@ body{
     margin: 0px;
     padding: 0px;
 }
-
-section#answers{
-    height: 300px;
-    width: 300px;
-    background-color: gainsboro;
-}

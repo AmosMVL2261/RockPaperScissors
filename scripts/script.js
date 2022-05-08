@@ -1,3 +1,7 @@
+//Number of games won 
+let userVictories=0;
+let computerVictories=0;
+
 //Computer random choose
 function computerPlay() {
     let random = getRandomNumber();    
@@ -22,50 +26,49 @@ function getRandomNumber(){
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
+    //Record
+    const playerNumWins = document.querySelector("#playerWins");
+    const compNumWins = document.querySelector("#computerWins");
     if(player === computer) {
         return "Tie";
     } else if (player === "rock" && computer === "scissors") {
+        userVictories+=1;
+        playerNumWins.textContent=userVictories.toString();
         return "Player Wins";
     } else if (player === "scissors" && computer === "paper") {
+        userVictories+=1;
+        playerNumWins.textContent=userVictories.toString();
         return "Player wins";
     } else if (player === "paper" && computer === "rock") {
+        userVictories+=1;
+        playerNumWins.textContent=userVictories.toString();
         return "Player wins";
     } else {
+        computerVictories+=1;
+        compNumWins.textContent=computerVictories.toString();
         return "Computer Wins";
     }
 }
 
 //Messages
 function message(playerSelection){
-    const resultsArea = document.querySelector("#answers");
-
-    const result = document.createElement("p");
-    result.classList.add("resultMessage");
-    result.setAttribute('style', 'white-space: pre;');
-    //Round play
+    //Logic
     const computerSelection = computerPlay();
-    let mensaje = "Your election: "+playerSelection+"\r\n"+"Computer election: "+computerSelection+"\r\n";
-    result.textContent = mensaje+playRound(playerSelection, computerSelection);
-
-    resultsArea.appendChild(result);
-}
-
-
-
-//Rounds logic
-let round=0;
-function selection(playerSelection){
-    if(round<=5){
-        message(playerSelection);
-    }else{
-        console.log("Invalid input");
+    const result = playRound(playerSelection, computerSelection);
+    //Last play
+    const lastResultPlayer = document.querySelector("#playerSelection");
+    const lastResultComp = document.querySelector("#computerSelection");
+    const winner = document.querySelector("#winner");
+    //Write the options selected
+    lastResultComp.textContent=computerSelection.toString();
+    lastResultPlayer.textContent=playerSelection.toString();
+    winner.textContent=result.toString();
+    //End of the games
+    if(computerVictories===5){
+        window.alert("Computer win all games");
+    }else if(userVictories===5){
+        window.alert("Player win all games");
     }
-
-}
-
-
-function prueba(){
-    window.alert("You selected rock");
 }
 
 //Button Calls
@@ -73,6 +76,6 @@ const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
 
-buttonRock.addEventListener("click",()=>selection("rock"));
-buttonPaper.addEventListener("click",()=>selection("paper"));
-buttonScissors.addEventListener("click",()=>selection("scissors"));
+buttonRock.addEventListener("click",()=>message("Rock"));
+buttonPaper.addEventListener("click",()=>message("Paper"));
+buttonScissors.addEventListener("click",()=>message("Scissors"));

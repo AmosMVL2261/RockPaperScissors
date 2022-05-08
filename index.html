@@ -9,13 +9,38 @@
         <script src="./scripts/script.js" defer></script>
     </head>
     <body>
-        <section id="answers">
-
-        </section>
-        <section id="buttons">
-            <button id="rock" type="button">Rock</button>
-            <button id="paper" type="button">Paper</button>
-            <button id="scissors" type="button">Scissors</button>
+        <section id="options">
+            <div class="past_games">
+                <figure>
+                    <img src="./images/rock.png" alt="Rock image">
+                    <figcaption>
+                        <button id="rock" type="button">Rock</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/paper.png" alt="Paper image">
+                    <figcaption>
+                        <button id="paper" type="button">Paper</button>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="./images/Scissors.png" alt="Scissors image">
+                    <figcaption>
+                        <button id="scissors" type="button">Scissors</button>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="results">
+                <p>Lastest game</p>
+                <p>You: <span id="playerSelection"></span></p>
+                <p>Computer: <span id="computerSelection"></span></p>
+                <p>Winner: <span id="winner"></span></p>
+            </div>
+            <div class="wins">
+                <p>Victories</p>
+                <p>You: <span id="playerWins">0</span></p>
+                <p>Computer: <span id="computerWins">0</span></p>
+            </div>
         </section>
 
 
