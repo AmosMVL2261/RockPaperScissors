@@ -1,6 +1,9 @@
 //Number of games won 
 let userVictories=0;
 let computerVictories=0;
+//Record
+const playerNumWins = document.querySelector("#playerWins");
+const compNumWins = document.querySelector("#computerWins");
 
 //Computer random choose
 function computerPlay() {
@@ -26,9 +29,6 @@ function getRandomNumber(){
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
-    //Record
-    const playerNumWins = document.querySelector("#playerWins");
-    const compNumWins = document.querySelector("#computerWins");
     if(player === computer) {
         return "Tie";
     } else if (player === "rock" && computer === "scissors") {
@@ -65,9 +65,23 @@ function message(playerSelection){
     winner.textContent=result.toString();
     //End of the games
     if(computerVictories===5){
-        window.alert("Computer win all games");
+        window.alert("Computer won 5 games");
     }else if(userVictories===5){
-        window.alert("Player win all games");
+        window.alert("Player won 5 games");
+    }
+    let ask;
+    if(computerVictories===5 || userVictories===5){
+        ask = window.confirm("Do you want to play again?");
+        if(ask===true){
+            //Reset the game
+            userVictories=0;
+            computerVictories=0;
+            lastResultComp.textContent="";
+            lastResultPlayer.textContent="";
+            winner.textContent="";
+            playerNumWins.textContent = "0";
+            compNumWins.textContent = "0";
+        }
     }
 }
 
