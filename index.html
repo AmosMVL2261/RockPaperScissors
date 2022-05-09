@@ -8,28 +8,28 @@
         <link rel="stylesheet" href="./styles/style.css">
         <script src="./scripts/script.js" defer></script>
     </head>
-    <body>
-        <section id="options">
-            <div class="past_games">
-                <figure>
-                    <img src="./images/rock.png" alt="Rock image">
-                    <figcaption>
-                        <button id="rock" type="button">Rock</button>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="./images/paper.png" alt="Paper image">
-                    <figcaption>
-                        <button id="paper" type="button">Paper</button>
-                    </figcaption>
-                </figure>
-                <figure>
-                    <img src="./images/Scissors.png" alt="Scissors image">
-                    <figcaption>
-                        <button id="scissors" type="button">Scissors</button>
-                    </figcaption>
-                </figure>
-            </div>
+    <body >
+        <section class="flex_basic_options" id="game">
+            <figure>
+                <img src="./images/rock.jpg" alt="Rock image">
+                <figcaption class="flex_basic_options">
+                    <button class="rockButton" id="rock" type="button">Rock</button>
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="./images/paper.jpg" alt="Paper image">
+                <figcaption class="flex_basic_options">
+                    <button class="paperButton" id="paper" type="button">Paper</button>
+                </figcaption>
+            </figure>
+            <figure>
+                <img src="./images/scissors.jpg" alt="Scissors image">
+                <figcaption class="flex_basic_options">
+                    <button class="scissorsButton" id="scissors" type="button">Scissors</button>
+                </figcaption>
+            </figure>
+        </section>
+        <section class="flex_basic_options" id="text">
             <div class="results">
                 <h2>Lastest game</h2>
                 <p>You: <span id="playerSelection"></span></p>
@@ -41,8 +41,6 @@
                 <p>You: <span id="playerWins">0</span></p>
                 <p>Computer: <span id="computerWins">0</span></p>
             </div>
-        </section>
-
-
+        </section>     
     </body>
 </html>
